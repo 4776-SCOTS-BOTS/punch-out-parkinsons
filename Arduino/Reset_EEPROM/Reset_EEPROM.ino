@@ -1,5 +1,24 @@
 /*
- * EEPROM Clear
+ * EEPROM Clear — Punch Out Parkinson's utility sketch
+ *
+ * PURPOSE
+ * -------
+ * Wipes every byte of the Arduino's EEPROM to 0. Use this when you want to
+ * reset the high score data that PoP_Full stores across power cycles.
+ * It is NOT part of normal gameplay — upload it only when a full score reset
+ * is needed, then re-upload PoP_Full immediately afterward (this sketch does
+ * nothing in loop() and will leave the board sitting idle).
+ *
+ * HOW TO KNOW IT'S DONE
+ * ----------------------
+ * Pin 10 (the LCD backlight pin) is driven HIGH at the end of setup().
+ * If the backlight turns on, the wipe completed successfully.
+ *
+ * WORKFLOW
+ * --------
+ * 1. Upload this sketch.
+ * 2. Wait for the LCD backlight to turn on.
+ * 3. Re-upload PoP_Full — scores now start from zero.
  *
  * Sets all of the bytes of the EEPROM to 0.
  * Please see eeprom_iteration for a more in depth
